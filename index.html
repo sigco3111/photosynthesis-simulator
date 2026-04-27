@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌱 식물 광합성 시뮬레이터</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>🌱 식물 광합성 시뮬레이터</h1>
+    <p class="subtitle">빛, 이산화탄소, 물을 조절하며 광합성 과정을 배워보세요!</p>
+  </header>
+
+  <main>
+    <!-- 조절 패널 -->
+    <section class="control-panel">
+      <h2>⚙️ 환경 조건 조절</h2>
+      
+      <div class="control-group">
+        <label for="light-slider">
+          <span class="emoji">🌞</span> 빛 세기
+        </label>
+        <input type="range" id="light-slider" min="0" max="100" value="70">
+        <span class="value" id="light-value">70%</span>
+        <p class="hint">광반응에 영향을 줍니다</p>
+      </div>
+
+      <div class="control-group">
+        <label for="co2-slider">
+          <span class="emoji">💨</span> 이산화탄소 농도
+        </label>
+        <input type="range" id="co2-slider" min="0" max="100" value="70">
+        <span class="value" id="co2-value">70%</span>
+        <p class="hint">탄소동화 반응에 영향을 줍니다</p>
+      </div>
+
+      <div class="control-group">
+        <label for="water-slider">
+          <span class="emoji">💧</span> 물 양
+        </label>
+        <input type="range" id="water-slider" min="0" max="100" value="70">
+        <span class="value" id="water-value">70%</span>
+        <p class="hint">전체 반응에 영향을 줍니다</p>
+      </div>
+
+      <div class="simulation-controls">
+        <button id="play-btn">▶️ 시작</button>
+        <button id="pause-btn" disabled>⏸️ 일시정지</button>
+        <div class="speed-control">
+          <label for="speed-slider">속도:</label>
+          <input type="range" id="speed-slider" min="1" max="5" value="3">
+          <span id="speed-value">1x</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 메인 Canvas 영역 -->
+    <section class="canvas-container">
+      <canvas id="main-canvas"></canvas>
+      <div class="stage-indicator">
+        <span id="stage-name">대기 중...</span>
+      </div>
+    </section>
+
+    <!-- 반응 단계 -->
+    <section class="stages-panel">
+      <h2>🔬 광합성 반응 단계</h2>
+      
+      <div class="stage" id="light-reaction">
+        <h3>☀️ 광반응 (빛 반응)</h3>
+        <div class="stage-animation" id="light-stage-anim">
+          <div class="molecule sun">☀️</div>
+          <div class="arrow">→</div>
+          <div class="molecule h2o">H₂O</div>
+          <div class="arrow">→</div>
+          <div class="molecule o2">O₂ ↑</div>
+          <div class="molecule atp">ATP</div>
+        </div>
+        <p class="stage-desc">
+          광계II에서 빛을 흡수 → 물 분해 → 산소 방출 + ATP 합성
+        </p>
+      </div>
+
+      <div class="stage" id="calvin-cycle">
+        <h3>🔄 탄소동화 반응 (Calvin Cycle)</h3>
+        <div class="stage-animation" id="calvin-stage-anim">
+          <div class="molecule co2">CO₂</div>
+          <div class="arrow">→</div>
+          <div class="molecule c3">3-PGA</div>
+          <div class="arrow">→</div>
+          <div class="molecule g3p">G3P</div>
+          <div class="arrow">→</div>
+          <div class="molecule glucose">C₆H₁₂O₆</div>
+        </div>
+        <p class="stage-desc">
+          CO₂ 고정 → 3-PGA → G3P → 포도당 합성
+        </p>
+      </div>
+
+      <div class="equation">
+        <h3>📝 전체 반응식</h3>
+        <div class="formula">
+          6CO₂ + 6H₂O + 빛 → C₆H₁₂O₆ + 6O₂
+        </div>
+      </div>
+    </section>
+
+    <!-- 그래프 영역 -->
+    <section class="graph-panel">
+      <h2>📊 생성량 그래프</h2>
+      <canvas id="graph-canvas"></canvas>
+      <div class="legend">
+        <span class="legend-item o2">● 산소 (O₂)</span>
+        <span class="legend-item glucose">● 포도당 (C₆H₁₂O₆)</span>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-label">산소 생성량:</span>
+          <span class="stat-value" id="o2-stat">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">포도당 생성량:</span>
+          <span class="stat-value" id="glucose-stat">0</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>🌿 초등~중등 과학 교육용 인터랙티브 학습 도구</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
