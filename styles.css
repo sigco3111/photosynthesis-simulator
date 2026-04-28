@@ -129,6 +129,72 @@ section h2 {
   margin-top: 0.3rem;
 }
 
+.wavelength-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.wl-btn {
+  flex: 1;
+  padding: 0.5rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.wl-btn.active {
+  border-color: var(--primary);
+  background: #e8f5e9;
+  font-weight: 600;
+}
+
+.wl-btn small {
+  color: var(--text-light);
+  font-size: 0.7rem;
+}
+
+.preset-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.preset-btn {
+  padding: 0.45rem 0.7rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.78rem;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.preset-btn:hover {
+  border-color: var(--primary-light);
+  background: #f1f8e9;
+}
+
+.preset-btn.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
+}
+
+#temp-value {
+  transition: color 0.3s;
+}
+
 /* ===== 시뮬레이션 조절 ===== */
 .simulation-controls {
   display: flex;
@@ -365,20 +431,155 @@ footer {
   .graph-panel { grid-row: auto; }
 }
 
-@media (max-width: 600px) {
-  header h1 { font-size: 1.4rem; }
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .control-panel {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  
+  .canvas-container {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  .graph-panel {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  
+  .stages-panel {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+  
+  #main-canvas {
+    max-width: 100%;
+    height: 300px;
+  }
+  
+  .preset-group {
+    justify-content: center;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 0.75rem;
+    gap: 0.75rem;
+  }
+  
+  .control-panel,
+  .canvas-container,
+  .graph-panel,
+  .stages-panel {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  
+  header {
+    padding: 1rem;
+  }
+  
+  header h1 {
+    font-size: 1.3rem;
+  }
+  
+  header .subtitle {
+    font-size: 0.85rem;
+  }
+  
+  section {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  
+  .control-group input[type="range"] {
+    height: 10px;
+  }
+  
+  .control-group input[type="range"]::-webkit-slider-thumb {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .simulation-controls button {
+    min-height: 44px;
+    min-width: 80px;
+    font-size: 1rem;
+  }
+  
+  .preset-btn {
+    min-height: 38px;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.5rem;
+  }
+  
+  .wl-btn {
+    min-height: 44px;
+    padding: 0.6rem 0.3rem;
+  }
+  
+  .speed-control input[type="range"]::-webkit-slider-thumb {
+    width: 28px;
+    height: 28px;
+  }
+  
+  #main-canvas {
+    max-width: 100%;
+    height: 280px;
+  }
+  
+  #graph-canvas {
+    height: 160px;
+  }
   
   .stage-animation {
     justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .molecule {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .formula {
+    font-size: 1rem;
   }
   
   .simulation-controls {
     justify-content: center;
+    gap: 0.5rem;
   }
   
   .speed-control {
     margin-left: 0;
     width: 100%;
     justify-content: center;
+  }
+  
+  .wavelength-buttons {
+    gap: 0.3rem;
+  }
+  
+  .preset-group {
+    gap: 0.3rem;
+  }
+  
+  footer {
+    font-size: 0.8rem;
   }
 }

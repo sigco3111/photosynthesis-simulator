@@ -17,6 +17,14 @@
     <section class="control-panel">
       <h2>⚙️ 환경 조건 조절</h2>
       
+      <div class="preset-group">
+        <button class="preset-btn" data-preset="sunny">☀️ 맑은 날</button>
+        <button class="preset-btn" data-preset="cloudy">☁️ 흐린 날</button>
+        <button class="preset-btn" data-preset="greenhouse">🏡 온실</button>
+        <button class="preset-btn" data-preset="desert">🏜️ 사막</button>
+        <button class="preset-btn" data-preset="deepsea">🌊 심해</button>
+      </div>
+      
       <div class="control-group">
         <label for="light-slider">
           <span class="emoji">🌞</span> 빛 세기
@@ -42,6 +50,25 @@
         <input type="range" id="water-slider" min="0" max="100" value="70">
         <span class="value" id="water-value">70%</span>
         <p class="hint">전체 반응에 영향을 줍니다</p>
+      </div>
+
+      <div class="control-group">
+        <label for="temp-slider">
+          <span class="emoji">🌡️</span> 온도
+        </label>
+        <input type="range" id="temp-slider" min="0" max="50" value="25">
+        <span class="value" id="temp-value">25°C</span>
+        <p class="hint">효소 활성에 영향을 줍니다 (최적: 25~35°C)</p>
+      </div>
+
+      <div class="control-group">
+        <label><span class="emoji">🌈</span> 빛 파장</label>
+        <div class="wavelength-buttons">
+          <button class="wl-btn active" data-wl="red">🔴 적색광<br><small>660nm</small></button>
+          <button class="wl-btn" data-wl="green">🟢 녹색광<br><small>530nm</small></button>
+          <button class="wl-btn" data-wl="blue">🔵 청색광<br><small>430nm</small></button>
+        </div>
+        <p class="hint">엽록소 흡수 스펙트럼에 따라 효율이 다릅니다</p>
       </div>
 
       <div class="simulation-controls">
