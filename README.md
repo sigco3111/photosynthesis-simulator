@@ -2,7 +2,11 @@
 
 > 빛, 이산화탄소, 물, 온도, 빛 파장 등 조건을 조절하며 광합성 과정을 인터랙티브하게 학습하는 교육용 시뮬레이터
 
-https://photosynthesis-simulator-two.vercel.app/
+라이브 데모 : https://sigco3111.github.io/photosynthesis-simulator/
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub%20Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white)](https://sigco3111.github.io/photosynthesis-simulator/)
+
+> 📦 **호스팅 메모**: 정적 단일 HTML 프로젝트로 GitHub Pages에 배포됩니다. 프로젝트 루트의 `vercel.json`은 **과거 Vercel 배포 이력 보존**(Pages 동작에는 무해) 차원에서 그대로 유지합니다.
 
 ## 🎯 주요 기능
 
